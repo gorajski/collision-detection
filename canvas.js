@@ -5,4 +5,5 @@ canvas.width = window.innerWidth
 canvas.height = window.innerHeight
 
 let scene = new Scene(c, canvas.width, canvas.height, canvas.width/2, canvas.height/2)
+scene.init()
 scene.animate(scene)
