@@ -1,3 +1,6 @@
+const RADIUS = 20
+const NUMBER_OF_CIRCLES = 200
+
 let Scene = function(context, width, height, originX, originY) {
 	this.c = context
 	this.width = width
@@ -22,11 +25,9 @@ Scene.prototype.draw = function() {
 }
 
 Scene.prototype.populateCircles = function() {
-
-	for(let i = 0; i < 80; i++) {
-		let radius = 15
-		// let newCircle = new Circle(this.c, (this.width/2-radius)*(2*Math.random()-1), (this.height/2-radius)*(2*Math.random()-1), 0, 0, radius, "red", "red")
-		let newCircle = new Circle(this.c, (this.width/2-radius)*(2*Math.random()-1), (this.height/2-radius)*(2*Math.random()-1), 4*Math.random()-2, 4*Math.random()-2, radius, "#ff0000", "#ff0000")
+	for(let i = 0; i < NUMBER_OF_CIRCLES; i++) {
+		// let newCircle = new Circle(this.c, (this.width/2-RADIUS)*(2*Math.random()-1), (this.height/2-RADIUS)*(2*Math.random()-1), 0, 0, RADIUS, "#000000", "#00f2c1")
+		let newCircle = new Circle(this.c, (this.width/2-RADIUS)*(2*Math.random()-1), (this.height/2-RADIUS)*(2*Math.random()-1), 8*Math.random()-4, 8*Math.random()-4, RADIUS, "#ffffff", "#00ff00")
 		newCircle.isValid(this.objects.circles) ? this.objects.circles.push(newCircle) : i--
 	}	
 }

@@ -12,11 +12,15 @@ let Circle = function(context, x, y, dx, dy, radius, strokeColor, fillColor) {
 Circle.prototype.draw = function() {
 	this.c.beginPath()
 	this.c.arc(this.x, this.y, this.radius, 0, 2*Math.PI)
-	// if (this.fillStyle != "#ff0000") { this.fillStyle =  }
-	this.c.strokeStyle = this.strokeColor
+	// this.c.strokeStyle = this.strokeColor
+	// if (parseInt(this.fillColor, 16) >= parseInt("#00ff00", 16)) { 
+		this.fillColor = incrementColor(this.fillColor, 60)
+	// } else {
+	// 	this.fillColor = incrementColor(this.fillColor, -1)
+	// }
 	this.c.fillStyle = this.fillColor
 	this.c.fill()
-	this.c.stroke()
+	// this.c.stroke()
 }
 
 Circle.prototype.updatePosition = function(sideBound, endBound) {
@@ -30,8 +34,8 @@ Circle.prototype.updatePosition = function(sideBound, endBound) {
 Circle.prototype.detectCollision = function(circleArray) {
 	for(anyCircle of circleArray) {
 		if (this != anyCircle && this.isTouching(anyCircle)) {
-			this.fillColor = 'blue'
-			anyCircle.fillColor = 'blue'
+			this.fillColor = '#0000ff'
+			anyCircle.fillColor = '#0000ff'
 		}
 	}
 }
